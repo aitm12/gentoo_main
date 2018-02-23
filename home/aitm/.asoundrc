@@ -1,0 +1,4 @@
+defaults.pcm.!card Intel
+defaults.pcm.!device 0
+defaults.pcm.!ctl Intel
+defaults.pcm.dmix.rate 44100
