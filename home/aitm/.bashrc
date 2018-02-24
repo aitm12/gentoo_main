@@ -64,4 +64,4 @@ alias gitpush='git push origin master'
 
 ###
 ### Apulse Alias
-alias firefox='apulse opt/firefox/firefox-bin'
+alias firefox='apulse /opt/firefox/firefox-bin'

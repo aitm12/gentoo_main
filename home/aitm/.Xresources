@@ -21,7 +21,7 @@ URxvt.scrollTtyKeypress: true
 
 urxvt*depth:32
 urxvt*foreground:#ADADAD
-urxvt*background:rgba:0600/0600/0600/dddd
+urxvt*background:#000000
 URxvt.foreground: 15
 URxvt.geometry: 70x25
 
@@ -146,8 +146,8 @@ URxvt.url-select.button:   1
 !URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 
 ! Black
-URxvt.color0:  #5c5c5c
-URxvt.color8:  #4c4c4c
+URxvt.color0:  #000000
+URxvt.color8:  #000000
 ! Red
 URxvt.color1:  #cd0000
 URxvt.color9:  #ff0000
