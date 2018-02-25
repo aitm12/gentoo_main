@@ -15,7 +15,7 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
-export PATH="$PATH:~/scripts"
+export PATH="$PATH:~/.scripts"
 
 # History
 HISTFILE=~/.histfile

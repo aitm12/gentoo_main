@@ -7,9 +7,9 @@
 *filter
 
 # Default Chain Policies
--P INPUT DROP
--P FORWARD DROP
--P OUTPUT DROP
+#-P INPUT DROP
+#-P FORWARD DROP
+#-P OUTPUT DROP
 
 # Allow  Incoming HTTP & HTTPS
 -A INPUT -i enp0s3 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
@@ -34,6 +34,10 @@
 # Allow outbound DNS
 -A OUTPUT -p udp -o enp0s3 --dport 53 -j ACCEPT
 -A INPUT -p udp -i enp0s3 --sport 53 -j ACCEPT
+
+# Open Keyservers Port
+-A OUTPUT -o enp0s3 -p tcp --dport 11371 -j ACCEPT
+-A INPUT -i enp0s3 -p tcp --sport 11371 -j ACCEPT
 
 # Allow Rsync
 -A INPUT -i enp0s3 -p tcp --sport 873 -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -74,8 +78,8 @@
 -A INPUT -p tcp --dport 80 -m limit --limit 25/minute --limit-burst 100 -j ACCEPT
 
 # Dropping All Other Traffic
-#-A INPUT -j DROP
-#-A OUTPUT -j DROP
-#-A FORWARD -j DROP
+-A INPUT -j DROP
+-A OUTPUT -j DROP
+-A FORWARD -j DROP
 
 COMMIT
