@@ -1,9 +1,6 @@
 # Screen Reso
 xrandr --output VGA-1 --mode 1600x900
 
-# pulseaudio
-/usr/bin/start-pulseaudio-x11 &
-
 # Xresources
 xrdb -merge ~/.Xresources &
 
