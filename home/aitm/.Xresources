@@ -4,7 +4,7 @@ URxvt.iso14755: false
 URxvt.iso14755_52: off
 URxvt.meta8: true
 URxvt.depth: 32
-URxvt.iconFile: /usr/share/icons/Humanity/apps/128/utilities-terminal.svg
+#URxvt.iconFile: /usr/share/icons/Humanity/apps/128/utilities-terminal.svg
 URxvt.metaSendsEscape: true
 
 URxvt.internalBorder: 0
@@ -60,10 +60,10 @@ URxvt.keysym.Control-Right:    \033[1;5C
 !URxvt.letterSpace: -1
 
 !Droid Sans
-URxvt.font: xft:Droid Sans Mono for Powerline:pixelsize=11:antialias=true:hinting=true
-URxvt.boldFont: xft:Droid Sans Mono for Powerline:bold:pixelsize=11:antialias=true:hinting=true
-URxvt.italicFont: xft:Droid Sans Mono for Powerline:italic:pixelsize=11:antialias=true:hinting=true
-URxvt.boldItalicFont: xft:Droid Sans Mono for Powerline:bold:italic:pixelsize=11:antialias=true
+URxvt.font: xft:Droid Sans Mono for Powerline:pixelsize=13:antialias=true:hinting=true
+URxvt.boldFont: xft:Droid Sans Mono for Powerline:bold:pixelsize=13:antialias=true:hinting=true
+URxvt.italicFont: xft:Droid Sans Mono for Powerline:italic:pixelsize=13:antialias=true:hinting=true
+URxvt.boldItalicFont: xft:Droid Sans Mono for Powerline:bold:italic:pixelsize=13:antialias=true
 !URxvt.letterSpace: -2
 
 !!Droid Sans
@@ -133,17 +133,17 @@ URxvt.keysym.M-s           	: perl:keyboard-select:search
 URxvt.keysym.M-C-v         	: perl:clipboard:paste_escaped
 !URxvt.perl-ext-common     	: tabbed,default,matcher
 !Urxvt.perl-lib            	: /usr/lib/urxvt/perl/
-URxvt.url-select.launcher  	: luakit
+URxvt.url-select.launcher  	: w#m
 URxvt.url-select.autocopy  	: true
 URxvt.url-select.underline 	: true
 
 URxvt.url-select.button:   1
 
-!URxvt.clipboard.copycmd:  xsel --input  --clipboard
-!URxvt.clipboard.pastecmd: xsel --output --clipboard
+URxvt.clipboard.copycmd:  xsel --input  --clipboard
+URxvt.clipboard.pastecmd: xsel --output --clipboard
 
-!URxvt.keysym.Control-Shift-C: perl:clipboard:copy
-!URxvt.keysym.Control-Shift-V: perl:clipboard:paste
+URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 
 ! Black
 URxvt.color0:  #000000
