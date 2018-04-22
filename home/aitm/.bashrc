@@ -37,6 +37,10 @@ alias esync='eix-sync'
 alias eupdate='eix-update'
 alias cdp='cd /etc/portage/'
 
+
+#### GIT
+### git config --global user.email "aitm814@gmail.com"
+### git config --global user.name "aitm12"
 ###
 ### Git Alias
 #cd into git dir
