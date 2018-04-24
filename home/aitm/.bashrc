@@ -15,7 +15,15 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
-export PATH="$PATH:~/.scripts"
+# zsh
+exec zsh
+
+#herbstluftwm
+#PATH="$PATH:$HOME/bin"
+
+############
+PATH="$PATH:~/.scripts"
+export PATH
 
 # History
 HISTFILE=~/.histfile
