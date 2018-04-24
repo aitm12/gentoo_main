@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 
 #git commit script
 # get user input for comment before committing git update
@@ -9,7 +9,7 @@
 read -p "enter your comment for git commit." var1
 
 # commit the add
-git commit -m $var1
+git commit -m "$var1"
 
 # clear var
 var1=""

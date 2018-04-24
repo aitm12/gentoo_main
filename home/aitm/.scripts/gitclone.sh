@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 
 # git clone script
 # prompt user for url to clone
