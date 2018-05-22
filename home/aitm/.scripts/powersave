@@ -1,0 +1,11 @@
+#! /bin/bash
+
+sudo cpupower frequency-set -g powersave
+sudo cpupower frequency-set -u 3600Mhz
+sudo cpupower frequency-set -d 800Mhz
+
+
+# adjust cpu fan to balance
+OpenCorsairLink --dev=0 --fan channel=1,mode=4
+OpenCorsairLink --dev=0 --fan channel=2,mode=4
+OpenCorsairLink --dev=0 --pump mode=3

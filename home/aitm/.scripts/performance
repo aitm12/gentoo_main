@@ -1,0 +1,10 @@
+#! /bin/bash
+
+sudo cpupower frequency-set -g performance
+sudo cpupower frequency-set -u 4300Mhz
+sudo cpupower frequency-set -d 800Mhz
+
+
+# adjust cpu fan
+OpenCorsairLink --dev=0 --fan channel=1,mode=5
+OpenCorsairLink --dev=0 --fan channel=2,mode=5

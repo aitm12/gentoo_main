@@ -33,7 +33,7 @@ $ipt -t nat -A POSTROUTING -o eno1 -j MASQUERADE
 # restricted to locally-initaied sessions only
 $ipt -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 $ipt -A FORWARD -i eno1 -o br0 -m state --state ESTABLISHED,RELATED -j ACCEPT
-$ipt -A FORWARD -i br0 -o eno1 -m state --state ESTABLISHED,RELATED -j ACCEPT
+$ipt -A FORWARD -i br0 -o eno1 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 
 # Allow all outbound
 $ipt -A OUTPUT -j ACCEPT

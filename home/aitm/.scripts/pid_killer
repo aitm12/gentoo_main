@@ -1,0 +1,15 @@
+#! /bin/bash
+
+## this script gets pid of script argument
+## then kill it
+## example: "pid_killer firefox" kills firefox
+
+# create varible | array to contain pid of scripts' argument(process)
+pid_var=( $(pgrep $1) )
+
+# kill processes
+# this command doesnt work withut the curly brackets for some reason
+sudo kill ${pid_var[*]}
+
+#destroy variable
+unset pid_var

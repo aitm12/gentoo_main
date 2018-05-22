@@ -15,7 +15,7 @@ $ipt -t nat -Z
 
 # close off POLICY
 $ipt -P INPUT DROP
-$ipt -P OUTPUT DROP
+$ipt -P OUTPUT ACCEPT
 $ipt -P FORWARD DROP
 $ipt -t nat -P OUTPUT ACCEPT
 $ipt -t nat -P PREROUTING ACCEPT
@@ -29,11 +29,15 @@ $ipt -A INPUT -i lo -j ACCEPT
 # enable ip masquerade
 $ipt -t nat -A POSTROUTING -o eno1 -j MASQUERADE
 
+# restrict lxc guest005 & guest007 from accessing each other
+$ipt -A FORWARD -s 192.168.1.16 -d 192.168.1.11 -j DROP
+$ipt -A FORWARD -s 192.168.1.11 -d 192.168.1.16 -j DROP
+
 # enable unrestricted outgoing traffic, incoming is
-# restricted to locally-initaied sessions only
+# restricted to locally-initiated sessions only
 $ipt -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 $ipt -A FORWARD -i eno1 -o br0 -m state --state ESTABLISHED,RELATED -j ACCEPT
-$ipt -A FORWARD -i br0 -o eno1 -m state --state ESTABLISHED,RELATED -j ACCEPT
+$ipt -A FORWARD -i br0 -o eno1 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
 
 # Allow all outbound
 $ipt -A OUTPUT -j ACCEPT
