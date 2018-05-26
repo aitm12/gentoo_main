@@ -1,0 +1,8 @@
+## HOW TO MULTI FRAMBUFFER
+
+# need a compiled con2fb.c
+# then run 'con2fb /dev/fb1 /dev/tty2' == 
+
+ties 2nd framebuffer to tty2
+fb0 = 1st framebuffer
+fb1 = 2nd framebuffer
