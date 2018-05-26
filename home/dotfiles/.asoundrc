@@ -1,0 +1,6 @@
+ defaults.pcm.!card PCH
+ defaults.pcm.!device 0
+ defaults.pcm.!ctl PCH
+ defaults.pcm.dmix.rate 48000
+ #defaults.pcm.rate_converter ""speexrate_medium"
+

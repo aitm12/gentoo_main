@@ -1,0 +1,44 @@
+## xbindkeys
+#m:0x1 == shift
+#m:0x4 == ctrl
+#m:0x8 == alt
+#m:0x40 == wind
+
+#shift + alt == m:0x1 + m:0x8 == m:0x9
+
+# open firefox through apulse
+#alt+f
+"/usr/bin/apulse /opt/firefox/firefox-bin"
+m:0x4 + w
+
+# open homebank
+'/usr/bin/homebank"
+Control + b
+
+# open urxvt
+"/usr/bin/urxvt"
+Control + grave
+
+#screen printer
+"/usr/bin/shutter"
+Control + Print
+
+# close screen printer
+"pkill shutter"
+Escape + Print
+
+### shutdown
+"sudo shutdown -P now"
+Mod4 + Escape
+
+### keyboar volume controls
+### toggle mute
+"amixer -c 1 -q sset Master toggle"
+XF86AudioMute
+
+"amixer -c 1 -q sset Master 5%+"
+XF86AudioRaiseVolume
+
+"amixer -c 1 -q sset Master 5%-"
+XF86AudioLowerVolume
+###

@@ -1,0 +1,125 @@
+###conky settings
+#
+background yes
+# out_to_console yes
+# out_to_x no
+update_interval 1
+total_run_times 0
+net_avg_samples 2
+cpu_avg_samples 2
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers no
+
+format_human_readable yes
+
+## text settings
+##
+use_xft yes
+text_buffer_size 1024
+override_utf8_locale no
+uppercase no
+#font 7x13
+xftfont Monofur 
+
+## window specifics
+##
+own_window no
+#own_window_type desktop
+#own_window_class conky
+#own_window_title "<hostname> x conky"
+#own_window_transparent no
+
+draw_outline no
+draw_borders no 
+draw_shades no
+draw_graph_borders yes
+
+gap_x 15
+gap_y 15
+
+border_inner_margin 3
+border_outer_margin 3
+border_width 1
+
+minimum_size 0 0
+maximum_width 0
+minimum_height 500 
+default_color white
+default_shade_color black
+default_outline_color black
+
+alignment top_left
+# stuff after 'TEXT' will be formatted on screen
+TEXT
+${font Monofur:bold:size=13}${color #587bad}${uid_name 1000}@$nodename xxxxxxxxxxxxxxxxx
+linux-$kernel  $time$font
+${font Monofur:size=9}${color #5b6dad}${hr 2}
+${font Monofur:size=9}${color #5b6dad}${hr 2}
+
+${font Monofur:bold:size=11}${color #587bad}System 
+${font Monofur:size=9}${color #5b6dad}${hr 2}
+${color #5b6dad} Uptime:${color #7f8ed3} $uptime ${color #5b6dad}- Load:${color #7f8ed3} $loadavg
+${color #5b6dad} CPU Frequency:${color #7f8ed3} ${freq} mhz${color #5b6dad} Maximum:${color #7f8ed3} ${freq_g} ghz
+${color #5b6dad} CPU Usage:
+  ${color #5b6dad}i5 4690k:${color #7f8ed3}  $cpu% ${cpubar}
+  ${color #5b6dad}Core 0:${color #738ede}    ${cpu cpu1}% ${cpubar cpu1}
+  ${color #5b6dad}Core 1:${color #7f8ed3}    ${cpu cpu2}% ${cpubar cpu2}
+  ${color #5b6dad}Core 2:${color #7f8ed3}    ${cpu cpu3}% ${cpubar cpu3}
+  ${color #5b6dad}Core 3:${color #7f8ed3}    ${cpu cpu4}% ${cpubar cpu4}
+
+ ${execi 01 sensors | grep 'Core 0'}
+ ${execi 01 sensors | grep 'Core 1'}
+ ${execi 01 sensors | grep 'Core 2'}
+ ${execi 01 sensors | grep 'Core 3'}
+
+${color #5b6dad} RAM Usage: ${color #7f8ed3} $mem/$memmax -    $memperc% ${membar}
+${color #5b6dad} Swap Usage: ${color #7f8ed3} $swap/$swapmax -         $swapperc% ${swapbar}
+
+${font Monofur:bold:size=11}${color #587bad}File Systems 
+${font Monofur:size=9}${color #5b6dad}${hr 2}
+ ${color #5b6dad}/ ${color #7f8ed3}${fs_used /}/${fs_size /} ${color #7f8ed3}      ${fs_used_perc /}% ${fs_bar /}
+ ${color #5b6dad}/f ${color #7f8ed3}${fs_used /f}/${fs_size /f} ${color #7f8ed3}     ${fs_used_perc /f}% ${fs_bar /f}
+ ${color #5b6dad}usb ${color #7f8ed3}${fs_used /media/usb}/${fs_size /media/usb} ${color #7f8ed3} ${fs_used_perc /media/usb}% ${fs_bar /media/usb}
+
+${font Monofur:bold:size=11}${color #587bad}Graphic 
+${font Monofur:size=9}${color #5b6dad}${hr 2}
+ ${color #5b6dad}Nvidia GeForce GTX 760 oc:
+ ${color #5b6dad}Frequency: ${alignr}${color #7f8ed3}${nvidia gpufreq} mhz
+ ${color #5b6dad}Memory: ${alignr}${color #7f8ed3}${nvidia memfreq} mhz
+ ${color #5b6dad}Temp: ${alignr}${color #7f8ed3}${nvidia temp}${iconv_start UTF-8 ISO_8859-1} °${iconv_stop}C
+
+${font Monofur:bold:size=11}${color #587bad}Networking 
+${font Monofur:size=9}${color #5b6dad}${hr 2}
+ ${color #5b6dad}Address: ${color #7f8ed3}${addr br0}${alignr}${color #5b6dad}TCP Connections: ${color #7f8ed3}${tcp_portmon 1 65535 count}
+ ${color #5b6dad}Down:${color #7f8ed3} ${downspeed br0} k/s${color #5b6dad}${offset 80}Up:${color #7f8ed3} ${upspeed br0} k/s
+${color #000000}${downspeedgraph br0 32,150 000000 7f8ed3} ${color #000000}${upspeedgraph br0 32,150 000000 7f8ed3}
+
+ ${color #5b6dad}Port(s) ${color #5b6dad}${alignr}Connections
+  ${color #5b6dad}Inbound: ${color #7f8ed3}${tcp_portmon 1 32767 count} ${color #5b6dad} Outbound: ${color #7f8ed3}${tcp_portmon 32768 61000 count} ${color #5b6dad}${alignr}ALL: ${color #7f8ed3}${tcp_portmon 1 65535 count}
+ ${color #5b6dad}Inbound Connection ${alignr} Local Service/Port$color
+ ${color #7f8ed3} ${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+  ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+  ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+  ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+  ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+ ${color #5b6dad}Outbound Connection ${alignr} Remote Service/Port$color
+ ${color #7f8ed3} ${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+  ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+  ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+  ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+  ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+
+${font Monofur:bold:size=11}${color #587bad}Processes 
+${font Monofur:size=9}${color #5b6dad}${hr 2}
+${color #5b6dad}Processes:${color #7f8ed3} $processes  ${color #5b6dad}Running:${color #7f8ed3} $running_processes
+${color #5b6dad}Name              PID     CPU%   MEM%
+ ${color #7f8ed3} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+ ${color #7f8ed3} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+ ${color #7f8ed3} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+
+${color #5b6dad}Mem usage
+ ${color #7f8ed3} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+ ${color #7f8ed3} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+ ${color #7f8ed3} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
