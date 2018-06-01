@@ -1,58 +1,62 @@
-###conky settings
-#
-background yes
-# out_to_console yes
-# out_to_x no
-update_interval 1
-total_run_times 0
-net_avg_samples 2
-cpu_avg_samples 2
+-conky settings
+conky.config = {
+background = yes,
+-- out_to_console = yes,
+-- out_to_x = no,
+update_interval 1,
+total_run_times 0,
+net_avg_samples 2,
+cpu_avg_samples 2,
 
-imlib_cache_size 0
-double_buffer yes
-no_buffers no
+imlib_cache_size 0,
+double_buffer = yes,
+no_buffers = no,
 
-format_human_readable yes
+format_human_readable = yes,
 
-## text settings
-##
-use_xft yes
-text_buffer_size 1024
-override_utf8_locale no
-uppercase no
-#font 7x13
-xftfont Monofur 
+-- text settings
+--
+use_xft = yes,
+text_buffer_size = 1024,
+override_utf8_locale = no,
+uppercase = no,
+--font = 7x13,
+xftfont = 'Monofur', 
 
-## window specifics
-##
-own_window no
-#own_window_type desktop
-#own_window_class conky
-#own_window_title "<hostname> x conky"
-#own_window_transparent no
+-- window specifics
+--
+own_window = yes,
+own_window_type = 'desktop',
+--own_window_class = 'conky',
+--own_window_title = "<hostname> x conky",
+--own_window_transparent = no,
 
-draw_outline no
-draw_borders no 
-draw_shades no
-draw_graph_borders yes
+draw_outline = no,
+draw_borders = no, 
+draw_shades = no,
+draw_graph_borders = yes,
 
-gap_x 15
-gap_y 15
+gap_x = 15,
+gap_y = 15,
 
-border_inner_margin 3
-border_outer_margin 3
-border_width 1
+border_inner_margin = 3,
+border_outer_margin = 3,
+border_width = 1,
 
-minimum_size 0 0
-maximum_width 0
-minimum_height 500 
-default_color white
-default_shade_color black
-default_outline_color black
+maximum_width = 0,
+minimum_height = 500, 
+default_color = 'white'
+default_shade_color = 'black',
+default_outline_color = 'black',
 
-alignment top_left
-# stuff after 'TEXT' will be formatted on screen
-TEXT
+alignment = 'top_left',
+
+
+};
+
+-- stuff after 'TEXT' will be formatted on screen
+
+conky.text = [[
 ${font Monofur:bold:size=13}${color #587bad}${uid_name 1000}@$nodename xxxxxxxxxxxxxxxxx
 linux-$kernel  $time$font
 ${font Monofur:size=9}${color #5b6dad}${hr 2}
@@ -123,3 +127,6 @@ ${color #5b6dad}Mem usage
  ${color #7f8ed3} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
  ${color #7f8ed3} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
  ${color #7f8ed3} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+
+]];
+
